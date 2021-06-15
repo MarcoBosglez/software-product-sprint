@@ -23,25 +23,26 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Handles requests sent to the /hello URL. Try running a server and navigating to /hello! */
+/** Handles requests sent to the /hello URL. */
 @WebServlet("/hello")
 public class HelloWorldServlet extends HttpServlet {
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-    // Convert data to JSON using GSON
+    // Convert data of ArrayList to JSON using GSON
     ArrayList<MarcoStats> marcoList = new ArrayList<MarcoStats>();
-    marcoList.add(new MarcoStats(20, "Marco"));
-    marcoList.add(new MarcoStats(21, "Xime"));
-    marcoList.add(new MarcoStats(26, "Luis"));
-    String json2 = convertToJsonUsingGson(marcoList);
+    marcoList.add(new MarcoStats(/*age=*/20, /*name=*/"Marco"));
+    marcoList.add(new MarcoStats(/*age=*/21, /*name=*/"Xime"));
+    marcoList.add(new MarcoStats(/*age=*/26, /*name=*/"Luis"));
+    String marcoStatsJson = convertToJsonUsingGson(marcoList);
 
     // Send the JSON as the response
     response.setContentType("application/json;");
-    response.getWriter().println(json2); //json
+    response.getWriter().println(marcoStatsJson);
   }
 
+  // Function for Converting data to JSON using GSON
   private String convertToJsonUsingGson(ArrayList<MarcoStats> marcoList) {
     Gson gson = new Gson();
     String json = gson.toJson(marcoList);
