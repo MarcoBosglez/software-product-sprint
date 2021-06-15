@@ -17,7 +17,7 @@ package com.google.sps.servlets;
 import com.google.sps.data.MarcoStats;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.util.Date;
+import java.util.ArrayList;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -27,40 +27,24 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/hello")
 public class HelloWorldServlet extends HttpServlet {
 
-  private final Date startTime = new Date();
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Calculate server stats
-    Date currentTime = new Date();
 
-    // Convert data to JSON
-    MarcoStats marcoStats = new MarcoStats(20, "Marco");
-    String json = convertToJsonUsingGson(marcoStats);
+    // Convert data to JSON using GSON
+    ArrayList<MarcoStats> marcoList = new ArrayList<MarcoStats>();
+    marcoList.add(new MarcoStats(20, "Marco"));
+    marcoList.add(new MarcoStats(21, "Xime"));
+    marcoList.add(new MarcoStats(26, "Luis"));
+    String json2 = convertToJsonUsingGson(marcoList);
 
     // Send the JSON as the response
     response.setContentType("application/json;");
-    response.getWriter().println(json);
-
-    //response.setContentType("text/html;");
-    //response.getWriter().println("<h1>Hello world!</h1>");
-    //response.getWriter().println("The server's current date is " + new Date());
+    response.getWriter().println(json2); //json
   }
 
-   private String convertToJson(MarcoStats marcoStats) {
-    String json = "{";
-    json += "\"Age\": ";
-    json += "\"" + marcoStats.getAge() + "\"";
-    json += ", ";
-    json += "\"Name\": ";
-    json += "\"" + marcoStats.getName() + "\"";
-    json += "}";
-    return json;
-  }
-
-  private String convertToJsonUsingGson(MarcoStats marcoStats) {
+  private String convertToJsonUsingGson(ArrayList<MarcoStats> marcoList) {
     Gson gson = new Gson();
-    String json = gson.toJson(marcoStats);
+    String json = gson.toJson(marcoList);
     return json;
   }
 }
