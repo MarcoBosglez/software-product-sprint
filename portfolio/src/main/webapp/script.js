@@ -37,7 +37,7 @@ async function getMarcoStats() {
   statsListElement.innerHTML = '';
 
   // Selects a random element in the ArrayList and prints it in the greeting-container
-  const index = Math.floor(Math.random() * 3);
+  const index = Math.floor(Math.random() * stats.length);
   statsListElement.appendChild(
       createListElement('Age: ' + stats[index].age));
   statsListElement.appendChild(

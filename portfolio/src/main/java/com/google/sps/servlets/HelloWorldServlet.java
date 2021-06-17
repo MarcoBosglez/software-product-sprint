@@ -35,7 +35,7 @@ public class HelloWorldServlet extends HttpServlet {
     marcoList.add(new MarcoStats(/*age=*/20, /*name=*/"Marco"));
     marcoList.add(new MarcoStats(/*age=*/21, /*name=*/"Xime"));
     marcoList.add(new MarcoStats(/*age=*/26, /*name=*/"Luis"));
-    String marcoStatsJson = convertToJsonUsingGson(marcoList);
+    String marcoStatsJson = convertToJson(marcoList);
 
     // Send the JSON as the response
     response.setContentType("application/json;");
@@ -43,7 +43,7 @@ public class HelloWorldServlet extends HttpServlet {
   }
 
   // Function for Converting data to JSON using GSON
-  private String convertToJsonUsingGson(ArrayList<MarcoStats> marcoList) {
+  private String convertToJson(ArrayList<MarcoStats> marcoList) {
     Gson gson = new Gson();
     String json = gson.toJson(marcoList);
     return json;
