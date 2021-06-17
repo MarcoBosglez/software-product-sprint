@@ -17,50 +17,35 @@ package com.google.sps.servlets;
 import com.google.sps.data.MarcoStats;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.util.Date;
+import java.util.ArrayList;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/** Handles requests sent to the /hello URL. Try running a server and navigating to /hello! */
+/** Handles requests sent to the /hello URL. */
 @WebServlet("/hello")
 public class HelloWorldServlet extends HttpServlet {
 
-  private final Date startTime = new Date();
-
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    // Calculate server stats
-    Date currentTime = new Date();
 
-    // Convert data to JSON
-    MarcoStats marcoStats = new MarcoStats(20, "Marco");
-    String json = convertToJsonUsingGson(marcoStats);
+    // Convert data of ArrayList to JSON using GSON
+    ArrayList<MarcoStats> marcoList = new ArrayList<MarcoStats>();
+    marcoList.add(new MarcoStats(/*age=*/20, /*name=*/"Marco"));
+    marcoList.add(new MarcoStats(/*age=*/21, /*name=*/"Xime"));
+    marcoList.add(new MarcoStats(/*age=*/26, /*name=*/"Luis"));
+    String marcoStatsJson = convertToJson(marcoList);
 
     // Send the JSON as the response
     response.setContentType("application/json;");
-    response.getWriter().println(json);
-
-    //response.setContentType("text/html;");
-    //response.getWriter().println("<h1>Hello world!</h1>");
-    //response.getWriter().println("The server's current date is " + new Date());
+    response.getWriter().println(marcoStatsJson);
   }
 
-   private String convertToJson(MarcoStats marcoStats) {
-    String json = "{";
-    json += "\"Age\": ";
-    json += "\"" + marcoStats.getAge() + "\"";
-    json += ", ";
-    json += "\"Name\": ";
-    json += "\"" + marcoStats.getName() + "\"";
-    json += "}";
-    return json;
-  }
-
-  private String convertToJsonUsingGson(MarcoStats marcoStats) {
+  // Function for Converting data to JSON using GSON
+  private String convertToJson(ArrayList<MarcoStats> marcoList) {
     Gson gson = new Gson();
-    String json = gson.toJson(marcoStats);
+    String json = gson.toJson(marcoList);
     return json;
   }
 }

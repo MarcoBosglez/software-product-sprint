@@ -12,9 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random greeting to the page.
- */
+/* Adds a random greeting to the page. */
 function addFunction() {
   const greetings =
       ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
@@ -23,7 +21,7 @@ function addFunction() {
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('function-container');
+  const greetingContainer = document.getElementById('greeting-container');
   greetingContainer.innerText = greeting;
 }
 
@@ -34,13 +32,16 @@ async function getMarcoStats() {
   // reference to create HTML.
   const stats = await responseFromServer.json();
 
-  const statsListElement = document.getElementById('function-container');
+  // Obtains ID "greeting-container" from HTML file
+  const statsListElement = document.getElementById('greeting-container');
   statsListElement.innerHTML = '';
 
+  // Selects a random element in the ArrayList and prints it in the greeting-container
+  const index = Math.floor(Math.random() * stats.length);
   statsListElement.appendChild(
-      createListElement('Age: ' + stats.age));
+      createListElement('Age: ' + stats[index].age));
   statsListElement.appendChild(
-      createListElement('Name: ' + stats.name));
+      createListElement('Name: ' + stats[index].name));
 }
 
 /** Creates an <li> element containing text. */
