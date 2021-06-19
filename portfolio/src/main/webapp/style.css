@@ -3,7 +3,7 @@ body
 {
   margin:0;
   padding:0;
-  background: linear-gradient(75deg,#2980b9,#8e44ad);
+  background: black;
   background-size:cover;
   font-family: 'Roboto', sans-serif;
 }
@@ -55,7 +55,7 @@ mainContent
   display: block;
   box-sizing: border-box;
 }
-languages
+background
 {
   display: block;
   box-sizing: border-box;
@@ -93,7 +93,7 @@ hr2 {
   border-style: inset;
   border-width: 1px;
 }
-.languageContent
+.backgroundContent
 {
   box-sizing: border-box;
   font-size: 20px;
@@ -111,57 +111,6 @@ p
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-}
-div.languageContainer
-{
-  width: 70%;
-  background-color: rgb(51, 53, 54);
-  box-shadow: 5px 10px #39308d;
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  margin-top: 0%;
-  margin-left: 0%;
-  margin-right: 26%;
-  margin-bottom: 0%;
-  transition: .5s;
-}
-  div.languageContainer:hover
-  {
-    background-color: rgb(0, 0, 0);
-  }
-.cpp {
-    width: 75%;
-    background-color: rgb(39, 87, 219);
-    transition: .5s;
-}
-.cpp:hover {
-    background-color: rgb(30, 64, 158);
-}
-.cs {
-    width: 70%;
-    background-color: rgb(149, 30, 173);
-    transition: .5s;
-}
-.cs:hover {background-color: rgb(112, 24, 129);}
-.python {
-    width: 65%;
-    background-color: rgb(248, 200, 68);
-    transition: .5s;
-}
-.python:hover {background-color: rgb(201, 161, 54);}
-.html {
-    width: 30%;
-    background-color: rgb(231, 111, 55);
-    transition: .5s;
-}
-.html:hover {background-color: rgb(189, 93, 48);}
-.skills {
-    text-align: right;
-    padding-top: 10px;
-    padding-right: 15px;
-    padding-bottom: 10px;
-    color: white;
 }
 #div1
 {

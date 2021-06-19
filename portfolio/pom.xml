@@ -46,6 +46,13 @@
         <version>2.8.6</version>
     </dependency>
 
+    <!-- Translation API-->
+    <dependency>
+      <groupId>com.google.cloud</groupId>
+      <artifactId>google-cloud-translate</artifactId>
+      <version>1.70.0</version>
+    </dependency>
+    
   </dependencies>
 
   <build>
