@@ -12,6 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+const eventListener = document.getElementById("greetings-button");
+eventListener.addEventListener("click", addFunction, false);
+
+const marcoEventListener = document.getElementById("marco-stats-button");
+marcoEventListener.addEventListener("click", getMarcoStats, false);
+
 /* Adds a random greeting to the page. */
 function addFunction() {
   const greetings =
@@ -50,4 +56,3 @@ function createListElement(text) {
   liElement.innerText = text;
   return liElement;
 }
-

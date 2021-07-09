@@ -3,9 +3,9 @@
   <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
   <meta charset="utf-8">
   <head>
-    <title>MarcoBg Page</title>
+    <title>Marco's Portfolio</title>
+    <link rel="shortcut icon" type="image/jpg" href="img/mlogo.png"/>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <script src="script.js"></script>
   </head>
 
   <body>
@@ -28,16 +28,36 @@
         <h2>BACKGROUND</h2>
         <hr></hr>
         <div class = backgroundContent>
-          <p>Hi!! My name is Marco and I'm a student at Tecnológico de Monterrey and I'm currently in Mexico City.</p>
-          <p>Ever since I was a kid I enjoyed videogames and this led me to want to learn how to create my own games.</p>
-          <p>After taking extracurricular courses to create 2D games using unity, I realized how powerful and vast this field could be so I started taking online courses 
-              for programming in C# and Python on my own time. This helped me decide to enroll in Computer Science.</p>
-          <p>My goal is to be able to create elaborate creative experiences using technology!</p>
+            <h1 id='messageToTranslate'> 
+                Hi!! My name is Marco and I'm a student at Tecnológico de Monterrey and I currently live in Mexico City.
+                My goal is to be able to create elaborate creative experiences using technology!
+            </h1>
 
-          <button onclick="addFunction();">Greetings</button>
-          <button onclick="getMarcoStats();">Marco</button>
+            <select id="language">
+            <option value="en">English</option>
+            <option value="zh">Chinese</option>
+            <option value="es">Spanish</option>
+            <option value="hi">Hindi</option>
+            <option value="ar">Arabic</option>
+            </select>
+
+            <button id="request-translation">Translate</button>
+            
+            <script src="translate.js"></script>
+
+            <hr/>
+            <div id="translated-result"></div>
+            
+          <p></p>
+          <p>Get a random greeting or a random person!</p>
+          <button id="greetings-button">Greetings</button>
+          <button id="marco-stats-button">Marco</button>
+
           <p id="greeting-container"></p>
           <p>Click <a href="/hello">here</a> to see the server response directly.</p>
+
+          <script src="script.js"></script>
+          
         </div>
       </div>
 
@@ -113,7 +133,7 @@
             <div class="grid-item"><img src = "img/hobbies (3).jpg" height:"85%" width="85%"></img></div>
             <div class="grid-item"><img src = "img/hobbies (1).jpg" height:"75%" width="75%"></img></div>
             <div class="grid-item">Drawing & Painting</div>
-            <div class="grid-item">Play Videogames</div>
+            <div class="grid-item">Playing Videogames</div>
             <div class="grid-item">Working Out</div>  
           </div>
 
